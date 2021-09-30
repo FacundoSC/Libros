@@ -24,15 +24,7 @@ public class Principal {
         gLibros.agregarLibro("hamlet", "yo", 34);
         gLibros.agregarLibro("hamlet", "yo", 34);
         gLibros.mostrar();
-  
-        System.out.println(gLibros.generarV2());
-        
-        
-        
-        
-       
 
-   
     }
     
 }
