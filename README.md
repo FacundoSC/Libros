@@ -46,6 +46,6 @@ Libro ("titulo","autor", New Genero(TipoGenero.Dramatico, Subgenero.subgenero));
 
 
 
-
+![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/FacundoSC/Libros/facundo/UML/diagramaClases.puml)
 
 
