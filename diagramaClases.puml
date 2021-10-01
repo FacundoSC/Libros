@@ -1,0 +1,37 @@
+ lines (32 sloc) 749 Bytes
+@startuml
+GestorLibro--> Libro 
+
+class GestorLibro{
+-{static} libros: ArrayList<Libros>;
+- gestorLibro : GestorLibro;
+- GestorLibro()
++{static}crearte():GestorLibro
++addBook(String,String,int)
++showBooks()
+
+}
+
+class Libro {
+   -isbn:String;
+   -titulo:String;
+   -autor:String;
+   -paginas:int;
+   +Libro(String,String,String,int)
+   +Libro(String,String,int)
+   +getIsbn():String
+   +getTitulo():String
+   +setIsbn(String)
+   +setTitulo(String)
+   +setAutor(String)
+   +setPaginas(int)
+   +{static}generateIsbn(int):String
+   +{static}generateIsbnV2(int): String
+   +{static}generateIsbnV3(int): String
+   +{static}generateIsbnV4():String
+   +{static}generateIsbnV5():String
+   -{static}getInt(int, int):int
+   - isIsbmValido(String): boolean
+   + show()
+}
+@enduml
