@@ -44,7 +44,7 @@ Libro ("titulo","autor", New Genero(TipoGenero.Dramatico, Subgenero.subgenero));
 ** agregar el uml  para ver en la portada del github si es posible.  readme.md
 
 
-![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/FacundoSC/Libros/facundo/diagramaUML.puml)
+![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/FacundoSC/Libros/facundo/diagramaClases.puml)
 
 
 
