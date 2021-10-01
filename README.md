@@ -42,5 +42,5 @@ Libro ("titulo","autor", New Genero(TipoGenero.Dramatico, Subgenero.subgenero));
 * agregar el metodo buscar libro que me permita buscar un libro por isbn y que me muestre los datos del libro  si se encuentra o  el mensaje , el libro  buscado no se encuentra.
 
 ** agregar el uml  para ver en la portada del github si es posible.  readme.md
-
 ![Class Diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/FacundoSC/Libros/main/UML/diagramaClases.puml)
+
