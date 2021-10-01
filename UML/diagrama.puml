@@ -1,4 +1,16 @@
 @startuml
+GestorLibros--> Libro 
+
+class GestorLibro{
+-{static} libros: ArrayList<Libros>;
+- gestorLibro : GestorLibro;
+- GestorLibro()
++{static}crear():GestorLibro
++agregarLibro(String,String,int)
++mostrar()
+
+}
+
 class Libro {
    -isbn:String;
    -titulo:String;
