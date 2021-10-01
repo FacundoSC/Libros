@@ -1,5 +1,5 @@
 @startuml
-GestorLibros--> Libro 
+GestorLibro--> Libro 
 
 class GestorLibro{
 -{static} libros: ArrayList<Libros>;
