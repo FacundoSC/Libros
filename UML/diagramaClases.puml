@@ -4,8 +4,7 @@ class Libro {
    -titulo:String;
    -autor:String;
    -paginas:int;
-
-   +Libro(String,String,int);
+   +Libro()
    +getIsbn():String
    +getTitulo():String
    +setIsbn(String)
