@@ -35,7 +35,7 @@ public class GestorLibros {
         for(Libro unLibro : libros){            
             if(unLibro.equals(libro)){
               esta= true;
-              System.out.println("el libro con ISBN:"+unLibro+"Ya se encuentra agregado");
+              System.out.println("el libro con ISBN:"+unLibro.getIsbn()+"Ya se encuentra agregado");
             }     
         }
          if(!esta)
@@ -43,13 +43,6 @@ public class GestorLibros {
    }
  }
     
-   
-   
-   public String generarV2(){
-    return libros.get(0).generarV2(10);
-   }
-   
-   
   public void mostrar(){
   for(Libro unLibro : libros){
     unLibro.mostrarLibro();
