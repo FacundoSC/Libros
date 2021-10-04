@@ -1,4 +1,4 @@
- lines (32 sloc) 749 Bytes
+
 @startuml
 GestorLibro--> Libro 
 
