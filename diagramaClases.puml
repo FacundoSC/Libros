@@ -2,6 +2,8 @@
 @startuml
 GestorLibro--> Libro 
 
+Libro --> Genero
+Libro --> SubGenero
 class GestorLibro{
 -{static} libros: ArrayList<Libros>;
 - gestorLibro : GestorLibro;
@@ -17,8 +19,11 @@ class Libro {
    -titulo:String;
    -autor:String;
    -paginas:int;
-   +Libro(String,String,String,int)
-   +Libro(String,String,int)
+   -tipoGenero:Genero;
+   - {static} ordenamiento: int;
+   +Libro(String,String,String,int,Genero)
+   +Libro(String,String,int,Genero)
+   + getAutor(String)
    +getIsbn():String
    +getTitulo():String
    +setIsbn(String)
@@ -31,7 +36,28 @@ class Libro {
    +{static}generateIsbnV4():String
    +{static}generateIsbnV5():String
    -{static}getInt(int, int):int
-   - isIsbmValido(String): boolean
+   - isIsbmValido(String): boolean;
+   + setOrdenamiento(int)
+   +compareTo(Libro):int
    + show()
+}
+
+enum Genero {
+      DRAMATICO
+      EPICO
+      LIRICO 
+      DIDACTICO
+
+}
+
+enum SubGenero {
+    CANCION
+    SATIRA
+    CUENTO
+    NOVELA
+    ROMANCE
+    COMEDIA
+    DRAMA
+    TRAGEDIA
 }
 @enduml
