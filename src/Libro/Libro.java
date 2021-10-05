@@ -22,6 +22,10 @@ public class Libro implements Comparable<Libro> {
     private String titulo;
     private String autor;
     private int paginas;
+
+    public int getPaginas() {
+        return paginas;
+    }
     private Genero tipoGenero;
     private SubGenero  tipoSubGenero;
     private static int ordenamiento;

@@ -4,6 +4,7 @@
  */
 package Comparator;
 
+import Enum.OrderLibros;
 import Libro.Libro;
 import java.util.Comparator;
 
@@ -13,6 +14,7 @@ import java.util.Comparator;
  */
 public class TituloComp implements Comparator<Libro>{
         OrderLibros orderLibro;
+        
     public TituloComp(OrderLibros orderLibro){
     this.orderLibro = orderLibro;
     }

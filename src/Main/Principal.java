@@ -4,7 +4,7 @@
  */
 package Main;
 
-import Comparator.OrderLibros;
+import Enum.OrderLibros;
 import GestorLibro.GestorLibro;
 import Enum.Genero;
 import Enum.SubGenero;
@@ -24,14 +24,18 @@ public class Principal {
      */
     public static void main(String[] args) {      
         GestorLibro gLibros = GestorLibro.crearte();  
-        gLibros.addBook("hamlet", "Shaspeark",34,Genero.DIDACTICO, SubGenero.DRAMA);
+        gLibros.addBook("hamlet", "Shaspeark",38,Genero.DIDACTICO, SubGenero.DRAMA);
         gLibros.addBook("Zorro", "Diego de la Vega", 34, Genero.DIDACTICO, SubGenero.DRAMA);
-        gLibros.addBook("el hombre sin cabeza", "yo", 34, Genero.DIDACTICO, SubGenero.DRAMA);
+        gLibros.addBook("el hombre sin cabeza", "yo", 40, Genero.DIDACTICO, SubGenero.DRAMA);
        // gLibros.orderByIsbn(OrderLibros.ASCENDENTE);
         //gLibros.orderByAutor(OrderLibros.ASCENDENTE);
         gLibros.orderByTitulo(OrderLibros.ASCENDENTE);
        //gLibros.orderByTitulo(OrderLibros.DESCENDENTE);
         gLibros.showBooks();
+        gLibros.searchBookForTitle("ZORRO");
+        System.out.println("comparator");
+        gLibros.orderByPaginas(OrderLibros.ASCENDENTE);
+
 
     }
     
