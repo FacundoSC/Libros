@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package libros;
+package Libro;
 
-import static java.lang.reflect.Array.getInt;
+import Enum.Genero;
+import Enum.SubGenero;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,23 +17,37 @@ import java.util.stream.IntStream;
  *
  * @author FacundoCordoba
  */
-public class Libro {
+public class Libro implements Comparable<Libro> {
     private String isbn;
     private String titulo;
     private String autor;
-    private int numeroPaginas;
+    private int paginas;
+
+    public int getPaginas() {
+        return paginas;
+    }
+    private Genero tipoGenero;
+    private SubGenero  tipoSubGenero;
+    private static int ordenamiento;
+
+    public static void setOrdenamiento(int ordenamiento) {
+    Libro.ordenamiento = (ordenamiento !=-1 && ordenamiento!=1) ?1:ordenamiento;      
+     }
 
     //Constructor
-    public Libro(String isbn, String titulo, String autor, int numeroPaginas) {
+    public Libro(String isbn, String titulo, String autor, int paginas,Genero tipoGenero , SubGenero tipoSubGenero) {
         setIsbn(isbn);
         setTitulo(titulo);
         setAutor(autor);
-        setNumeroPaginas(numeroPaginas);
+        setPaginas(paginas);
+        this.tipoGenero = tipoGenero;
+        this.tipoSubGenero = tipoSubGenero;
+ 
     }
 
     //Constructor
-    public Libro(String titulo, String autor, int numeroPaginas) {
-        this(generarIsbnV2(10), titulo, autor, numeroPaginas);
+    public Libro(String titulo, String autor, int numeroPaginas ,Genero tipoGenero, SubGenero tipoSubGenero) {
+        this(generateIsbnV2(10), titulo, autor, numeroPaginas, tipoGenero, tipoSubGenero);
     }
 
     public String getIsbn() {
@@ -44,7 +59,7 @@ public class Libro {
     }
 
     public void setIsbn(String isbn) {
-        if (this.esIsbmValido(isbn))
+        if (this.isIsbmValido(isbn))
         {
             this.isbn = isbn;
         } else
@@ -74,15 +89,19 @@ public class Libro {
         }
     }
 
-    public void setNumeroPaginas(int numeroPaginas) {
-        if (numeroPaginas > 0)
+    public void setPaginas(int paginas) {
+        if (paginas > 0)
         {
-            this.numeroPaginas = numeroPaginas;
+            this.paginas = paginas;
         }
 
     }
+    
+    public String getAutor(){
+      return this.autor;
+    }
 
-    private static String generarIsbn(int cantidadDigitos) {
+    private static String generateIsbn(int cantidadDigitos) {
         String cadena = "";
         List<String> numeros = new ArrayList<>();
         for (int i = 1; i <= cantidadDigitos; i++)
@@ -94,17 +113,19 @@ public class Libro {
     }
     // recursivamente
 
-    public static String generarIsbnV2(int cantidadDigitos) {
-        return (cantidadDigitos == 0) ? "" : Integer.toString((int) (Math.random() * 9)) + "" + generarIsbnV2(cantidadDigitos - 1);
+    public static String generateIsbnV2(int cantidadDigitos) {
+        return (cantidadDigitos == 0) ? "" : Integer.toString((int) (Math.random() * 9)) + "" + generateIsbnV2(cantidadDigitos - 1);
     }
+    
+    
     // funcional
 
-    public static String generarIsbnV3(int cantidadDigitos) {
+    public static String generateIsbnV3(int cantidadDigitos) {
         return IntStream.rangeClosed(1, cantidadDigitos).mapToObj(i -> Integer.toString(getInt(0, 9)))
                 .collect(Collectors.joining(""));
     }
 
-    public static String generarIsbnV4(int cantidadDigitos) {
+    public static String generateIsbnV4(int cantidadDigitos) {
         String randomNumbers = IntStream.rangeClosed(1, cantidadDigitos)
                 .mapToObj(i -> Integer.toString(getInt(0, 9)))
                 .collect(Collectors.joining(""));
@@ -112,7 +133,7 @@ public class Libro {
         return randomNumbers;
     }
 
-    public static String generarIsbnV5(int cantidadDigitos) {
+    public static String generateIsbnV5(int cantidadDigitos) {
         Random random = new Random();
         return random.ints(cantidadDigitos, 0, 10).boxed().map(value -> value.toString()).collect(Collectors.joining());
     }
@@ -121,15 +142,24 @@ public class Libro {
         return new Random().nextInt(max - min + 1) + min;
     }
 
-    private boolean esIsbmValido(String isbn){
+    private boolean isIsbmValido(String isbn){
        String dniRegexp = "\\d{10}";
        return Pattern.matches(dniRegexp,isbn);
     }
     
-    public void mostrarLibro(){
-     String mensaje =String.format("El libro %s  con ISBN  %s creado por el autor %s tiene %d páginas ",this.titulo,this.isbn,this.autor,this.numeroPaginas);
+    public void show(){
+     String mensaje =String.format("El libro %s  con ISBN  %s creado por el autor %s tiene %d páginas , su genero es  %s y su subgenero es  %s",this.titulo,this.isbn,this.autor,this.paginas,this.tipoGenero , this.tipoSubGenero);
      System.out.println(mensaje);
     }
+    
+
+
+    @Override
+    public int compareTo(Libro o) {
+        return (Libro.ordenamiento)*isbn.compareTo(o.isbn);
+    }
+    
+    
    
     
 

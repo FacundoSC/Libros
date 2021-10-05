@@ -4,7 +4,10 @@
  */
 package Main;
 
-import GestorLibros.GestorLibros;
+import Enum.OrderLibros;
+import GestorLibro.GestorLibro;
+import Enum.Genero;
+import Enum.SubGenero;
 import java.util.Random;
 import java.util.stream.Collectors;
  
@@ -20,10 +23,19 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {      
-        GestorLibros gLibros = GestorLibros.crear();   
-        gLibros.agregarLibro("hamlet", "yo", 34);
-        gLibros.agregarLibro("hamlet", "yo", 34);
-        gLibros.mostrar();
+        GestorLibro gLibros = GestorLibro.crearte();  
+        gLibros.addBook("hamlet", "Shaspeark",38,Genero.DIDACTICO, SubGenero.DRAMA);
+        gLibros.addBook("Zorro", "Diego de la Vega", 34, Genero.DIDACTICO, SubGenero.DRAMA);
+        gLibros.addBook("el hombre sin cabeza", "yo", 40, Genero.DIDACTICO, SubGenero.DRAMA);
+       // gLibros.orderByIsbn(OrderLibros.ASCENDENTE);
+        //gLibros.orderByAutor(OrderLibros.ASCENDENTE);
+        gLibros.orderByTitulo(OrderLibros.ASCENDENTE);
+       //gLibros.orderByTitulo(OrderLibros.DESCENDENTE);
+        gLibros.showBooks();
+        gLibros.searchBookForTitle("ZORRO");
+        System.out.println("comparator");
+        gLibros.orderByPaginas(OrderLibros.ASCENDENTE);
+
 
     }
     
