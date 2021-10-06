@@ -51,7 +51,7 @@ public class LibroTest {
     }
 
     /**
-     * Test of setOrdenamientoo method, of class Libro.
+     * Test of setOrdenamiento method, of class Libro.
      */
     @Test
     public void testSetOrdenamiento() {
